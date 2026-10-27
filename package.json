@@ -1,0 +1,16 @@
+{
+  "name": "online-food-ordering-system",
+  "version": "1.0.0",
+  "description": "Full-stack online food ordering system using Node.js, Express, SQLite, and vanilla JavaScript",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^12.11.1",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}

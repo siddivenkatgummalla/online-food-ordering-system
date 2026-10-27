@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crave — Online Food Ordering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">c.</span> crave<span class="brand-dot">.</span></a>
+    <nav><a href="#menu">Menu</a><a href="#how">How it works</a><button id="ordersBtn" class="nav-link">My orders</button></nav>
+    <div class="top-actions"><button id="authBtn" class="btn btn-outline">Log in</button><button id="cartBtn" class="cart-button">🛍 <span>Cart</span><b id="cartCount">0</b></button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> GOOD FOOD, GOOD MOOD</div>
+        <h1>Your cravings.<br><em>Our kitchen.</em></h1>
+        <p>Freshly made favourites, delivered right to your door. Pick a dish, place your order, and let the good times roll.</p>
+        <div class="hero-actions"><a href="#menu" class="btn btn-primary">Explore the menu <span>↗</span></a><div class="delivery-note"><span class="delivery-icon">◷</span><span><b>25–35 min</b><small>Average delivery</small></span></div></div>
+        <div class="hero-social"><div class="avatar-stack"><span>☺</span><span>☺</span><span>☺</span></div><span><b>4.9/5</b> loved by hungry people</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-circle"></div>
+        <img class="hero-food" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1100" alt="Delicious burger with fresh ingredients">
+        <div class="floating-card"><span class="floating-icon">✦</span><span><b>Made with love</b><small>Fresh ingredients daily</small></span></div>
+        <div class="hero-sticker">FRESH<br> & TASTY</div>
+      </div>
+      <div class="hero-bottom"><span>01 / 03</span><div class="hero-progress"><i></i></div><span>SCROLL TO DISCOVER ↓</span></div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-head"><div><div class="eyebrow"><span class="eyebrow-line"></span> THE GOOD STUFF</div><h2>Made to make you <em>happy.</em></h2></div><p>Comfort food, little treats, and all your<br class="desktop-only"> favourites in one delicious place.</p></div>
+      <div class="menu-controls"><div id="categories" class="categories"><button class="category active" data-category="All">All items</button></div><label class="search-box">⌕ <input id="searchInput" type="search" placeholder="Search your cravings..." /></label></div>
+      <div id="menuGrid" class="menu-grid"><div class="loading">Cooking up the menu...</div></div>
+    </section>
+
+    <section class="how-section" id="how"><div class="eyebrow"><span class="eyebrow-line"></span> EASY AS ONE, TWO, EAT</div><h2>Good food is just <em>three steps away.</em></h2><div class="steps"><article><span class="step-no">01</span><div class="step-icon">⌕</div><h3>Find your favourite</h3><p>Browse our menu and discover something delicious.</p></article><article><span class="step-no">02</span><div class="step-icon">♧</div><h3>Make it yours</h3><p>Add your picks to the cart and tell us where to deliver.</p></article><article><span class="step-no">03</span><div class="step-icon">♡</div><h3>Enjoy every bite</h3><p>We prepare your order fresh. You bring the appetite.</p></article></div></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">c.</span> crave<span class="brand-dot">.</span></a><span>Made with a little extra love. © 2026 Crave.</span><span>Fresh food, happy mood.</span></footer>
+
+  <div id="overlay" class="overlay hidden"></div>
+  <aside id="cartDrawer" class="drawer hidden"><div class="drawer-head"><div><span class="eyebrow">YOUR SELECTION</span><h2>Your cart <span id="drawerCount">(0)</span></h2></div><button class="close-btn" data-close>×</button></div><div id="cartItems" class="drawer-content"></div><div class="cart-summary"><div class="summary-line"><span>Subtotal</span><b id="subtotal">₹0</b></div><div class="summary-line muted"><span>Delivery</span><span>Free</span></div><div class="summary-line total"><span>Total</span><b id="total">₹0</b></div><button id="checkoutBtn" class="btn btn-primary full">Continue to checkout ↗</button><small>Secure checkout · Demo project</small></div></aside>
+
+  <section id="authModal" class="modal hidden"><button class="close-btn modal-close" data-close>×</button><div class="eyebrow">WELCOME TO CRAVE</div><h2 id="authTitle">Welcome back.</h2><p id="authSub">Log in to see your orders and checkout.</p><form id="authForm"><div id="nameField" class="field hidden"><label>Full name</label><input name="name" placeholder="Your name" /></div><div class="field"><label>Email address</label><input name="email" type="email" placeholder="you@example.com" required /></div><div class="field"><label>Password</label><input name="password" type="password" minlength="6" placeholder="At least 6 characters" required /></div><p id="authError" class="error"></p><button class="btn btn-primary full" type="submit" id="authSubmit">Log in</button></form><p class="switch-auth"><span id="switchText">New to Crave?</span> <button id="switchAuth">Create an account</button></p></section>
+
+  <section id="checkoutModal" class="modal hidden"><button class="close-btn modal-close" data-close>×</button><div class="eyebrow">ALMOST THERE</div><h2>Delivery details.</h2><p>Where should we bring your delicious order?</p><form id="checkoutForm"><div class="field"><label>Full name</label><input name="customerName" required placeholder="Your name" /></div><div class="field"><label>Phone number</label><input name="phone" required pattern="[0-9+() -]{8,20}" placeholder="Your phone number" /></div><div class="field"><label>Delivery address</label><textarea name="address" required rows="3" placeholder="House number, street, city"></textarea></div><p id="checkoutError" class="error"></p><button class="btn btn-primary full" type="submit">Place order · <span id="checkoutTotal">₹0</span></button><small class="demo-note">Demo only — no real payment is collected.</small></form></section>
+
+  <section id="ordersModal" class="modal wide-modal hidden"><button class="close-btn modal-close" data-close>×</button><div class="eyebrow">YOUR CRAVE HISTORY</div><h2>My orders.</h2><div id="ordersList"></div></section>
+  <div id="toast" class="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
